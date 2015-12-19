@@ -16,7 +16,11 @@ hexo.extend.generator.register('docs', function (locals) {
 });
 
 hexo.extend.generator.register('examples.json', function (locals) {
-  hexo.route.set('examples/index.json', JSON.stringify(locals.data.examples));
+  // hexo.route.set('examples/index.json', JSON.stringify(locals.data.examples));
+  return {
+    path: 'examples/index.json',
+    data: JSON.stringify(locals.data.examples)
+  };
 });
 
 hexo.extend.generator.register('examples', function (locals) {

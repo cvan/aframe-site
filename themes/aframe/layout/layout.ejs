@@ -43,6 +43,9 @@
     <main id="main" class="main">
       <%- body %>
     </main>
+    <% if (showExamples) { %>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.0.0/annyang.min.js"></script>
+    <% } %>
     <%- js('js/common.js') %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
     <script>
