@@ -220,35 +220,35 @@
   }
 
   fetchJSON('/examples/index.json', function (data) {
-    console.log('loaded', data);
-
     if (!data) { return; }
 
-    choices = (data.examples || []).map(function (example) {
-      example.title = (example.title || example.slug || '').replace(/&/g, 'and');
-      return example;
+    initSpeech(data.examples);
+  });
+
+  function initSpeech (data) {
+    if (!annyang) { return; }
+
+    choices = (data || []).map(function (item) {
+      item.title = (item.title || item.slug || '').replace(/&/g, 'and');
+      return item;
     });
 
-    if (speechCmds) {
-      addSpeechCmd(choices[0], 'first');
-      addSpeechCmd(choices[0], 'start');
-      addSpeechCmd(choices[0], 'beginning');
-      // addSpeechCmd(choices[choices.length - 1], 'last');
-      addSpeechCmd(choices[choices.length - 1], 'end');
+    addSpeechCmd(choices[0], 'first');
+    addSpeechCmd(choices[0], 'start');
+    addSpeechCmd(choices[0], 'beginning');
+    // addSpeechCmd(choices[choices.length - 1], 'last');
+    addSpeechCmd(choices[choices.length - 1], 'end');
 
-      addSpeechCmd(choices[0], 'the first');
-      addSpeechCmd(choices[0], 'the start');
-      addSpeechCmd(choices[0], 'the beginning');
-      // addSpeechCmd(choices[choices.length - 1], 'the last');
-      addSpeechCmd(choices[choices.length - 1], 'the end');
-    }
+    addSpeechCmd(choices[0], 'the first');
+    addSpeechCmd(choices[0], 'the start');
+    addSpeechCmd(choices[0], 'the beginning');
+    // addSpeechCmd(choices[choices.length - 1], 'the last');
+    addSpeechCmd(choices[choices.length - 1], 'the end');
 
     function addSpeechCmd (example, title) {
-      if (!speechCmds) { return; }
-
       if (!title) { title = example.title; }
 
-      var cmdFunc = function () { console.log('loaded title', title); loadExample(example); };
+      var cmdFunc = function () { loadExample(example); };
 
       // TODO: Use `regexp` format.
       speechCmds[title] = cmdFunc;
@@ -285,72 +285,80 @@
       window.location.href = '/' + ['examples', example.section, example.slug, ''].join('/');
     }
 
-    if (speechCmds) {
-      annyang.addCommands(speechCmds);
+    annyang.addCommands(speechCmds);
 
-      annyang.addCallback('resultNoMatch', function (userSaid, commandText, phrases) {
-        if (!userSaid) { return; }
+    annyang.addCallback('resultNoMatch', function (userSaid, commandText, phrases) {
+      if (!userSaid) { return; }
 
-        userSaid = userSaid.map(strip);
+      userSaid = userSaid.map(strip);
 
-        if (userSaid.indexOf('back') !== -1 ||
-            userSaid.indexOf('previous') !== -1 ||
-            userSaid.indexOf('backward') !== -1 ||
-            userSaid.indexOf('backwards') !== -1 ||
-            userSaid.indexOf('reverse') !== -1) {
+      if (userSaid.indexOf('back') !== -1 ||
+          userSaid.indexOf('previous') !== -1 ||
+          userSaid.indexOf('backward') !== -1 ||
+          userSaid.indexOf('backwards') !== -1 ||
+          userSaid.indexOf('reverse') !== -1) {
+        speechCmds.back();
+        return;
+      }
+
+      if (userSaid.indexOf('next') !== -1 ||
+          userSaid.indexOf('forward') !== -1 ||
+          userSaid.indexOf('forwards') !== -1 ||
+          userSaid.indexOf('skip') !== -1 ||
+          userSaid.indexOf('pass') !== -1) {
+        speechCmds.forward();
+        return;
+      }
+
+      var i = 0;
+      var j = 0;
+      var phrase = '';
+      var words = [];
+      var word = '';
+
+      for (i = 0; i < userSaid.length; i++) {
+        phrase = userSaid[i];
+
+        words = phrase.split(' ');
+
+        if (words.indexOf('backward') !== -1 ||
+            words.indexOf('backwards') !== -1) {
           speechCmds.back();
           return;
         }
-
-        if (userSaid.indexOf('next') !== -1 ||
-            userSaid.indexOf('forward') !== -1 ||
-            userSaid.indexOf('forwards') !== -1 ||
-            userSaid.indexOf('skip') !== -1 ||
-            userSaid.indexOf('pass') !== -1) {
+        if (words.indexOf('forward') !== -1 ||
+            words.indexOf('forwards') !== -1) {
           speechCmds.forward();
           return;
         }
 
-        var i = 0;
-        var j = 0;
-        var phrase = '';
-        var words = [];
-        var word = '';
-
-        for (i = 0; i < userSaid.length; i++) {
-          phrase = userSaid[i];
-
-          words = phrase.split(' ');
-
-          if (words.indexOf('backward') !== -1 ||
-              words.indexOf('backwards') !== -1) {
-            speechCmds.back();
-            return;
-          }
-          if (words.indexOf('forward') !== -1 ||
-              words.indexOf('forwards') !== -1) {
-            speechCmds.forward();
-            return;
-          }
-
-          if (words.indexOf('back') !== -1 ||
-              words.indexOf('previous') !== -1 ||
-              words.indexOf('last') !== -1) {
-            // Disclaimer: last could be confused with last item.
-            speechCmds.back();
-            return;
-          }
-          if (words.indexOf('next') !== -1) {
-            speechCmds.forward();
-            return;
-          }
+        if (words.indexOf('back') !== -1 ||
+            words.indexOf('previous') !== -1 ||
+            words.indexOf('last') !== -1) {
+          // Disclaimer: last could be confused with last item.
+          speechCmds.back();
+          return;
         }
-      });
+        if (words.indexOf('next') !== -1) {
+          speechCmds.forward();
+          return;
+        }
+      }
+    });
 
+    if (window.MOBILE) {
       annyang.start();
+    } else {
+      var examplesSidebar = $('[data-page-type="examples"] .sidebar');
+      if (examplesSidebar) {
+        examplesSidebar.addEventListener('click', function (e) {
+          if (e.detail >= 3) {
+            annyang.start();
+          }
+        });
+      }
     }
-  });
-
+  }
 
   // DOCS.
   var anchorHeadingsSelector = 'h2[id], h3[id], h4[id], h5[id], h6[id]';
