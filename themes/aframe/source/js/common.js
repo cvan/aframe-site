@@ -346,18 +346,19 @@
       }
     });
 
-    if (window.MOBILE) {
-      annyang.start();
-    } else {
-      var examplesSidebar = $('[data-page-type="examples"] .sidebar');
-      if (examplesSidebar) {
-        examplesSidebar.addEventListener('click', function (e) {
-          if (e.detail >= 3) {
-            annyang.start();
-          }
-        });
-      }
-    }
+    annyang.start();
+    // if (window.MOBILE) {
+    //   annyang.start();
+    // } else {
+    //   var examplesSidebar = $('[data-page-type="examples"] .sidebar');
+    //   if (examplesSidebar) {
+    //     examplesSidebar.addEventListener('click', function (e) {
+    //       if (e.detail >= 3) {
+    //         annyang.start();
+    //       }
+    //     });
+    //   }
+    // }
   }
 
   // DOCS.
