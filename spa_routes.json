@@ -1,0 +1,33 @@
+{
+  "index.html": [
+    "/"
+  ],
+  "examples.html": [
+    "/examples/",
+    "/examples/showcase/",
+    "/examples/showcase/helloworld/",
+    "/examples/showcase/anime-UI/",
+    "/examples/showcase/composite/",
+    "/examples/showcase/videosphere/",
+    "/examples/showcase/curved-mockups/",
+    "/examples/showcase/spheres-and-fog/",
+    "/examples/showcase/shopping/",
+    "/examples/showcase/warps/",
+    "/examples/showcase/generic-logo/",
+    "/examples/showcase/unfold/",
+    "/examples/showcase/sky/",
+    "/examples/showcase/cursor/",
+    "/examples/showcase/lookat/",
+    "/examples/showcase/basics/"
+  ],
+  "content.html": [
+    "/faq/",
+    "/community/"
+  ],
+  "404_error.html": [
+    "/blog/2015/12/16/0.0.10-release/",
+    "/docs/",
+    "/docs/guide/",
+    "/guide/"
+  ]
+}

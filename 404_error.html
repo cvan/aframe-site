@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script>
+      (function () {
+        // Legacy redirects.
+        var path = window.location.pathname;
+        var pathWithSlash = addSlash(path);
+        function addSlash (path) {
+          if (path.substr(-1) !== '/') {
+            path += '/';
+          }
+          return path;
+        }
+        function pathIs (url) {
+          return pathWithSlash === addSlash(url);
+        }
+        function pathContains (url) {
+          return pathWithSlash.indexOf(addSlash(url)) !== -1;
+        }
+        function redirect (url) {
+          window.location.href = url;
+        }
+        if (pathIs('/blog/2015/12/16/0.0.10-release/')) {
+          redirect('/blog/2015/12/16/introducing-aframe/');
+        } else if (pathIs('/docs/') || pathIs('/docs/guide/') || pathIs('/guide/')) {
+          redirect('/docs/guide/');
+        } else if (pathIs('/examples/showcase/')) {
+          redirect('/examples/');
+        } else {
+          redirect('/');
+        }
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
