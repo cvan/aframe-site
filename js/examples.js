@@ -1,5 +1,188 @@
 (function () {
 
+var path = window.location.pathname;
+var pathWithSlash = forceTrailingSlash(path);
+
+function forceTrailingSlash (str) {
+  if (str.substr(-1) !== '/') {
+    str += '/';
+  }
+  return str;
+}
+
+function stripTrailingSlashes (str) {
+  return str.replace(/\/+$/, '');
+}
+
+var examples = {
+  "title": "Examples",
+  "examples": [
+    {
+      "section": "showcase",
+      "slug": "helloworld",
+      "path": "boilerplate-helloworld/",
+      "title": "Hello World"
+    },
+    {
+      "section": "showcase",
+      "slug": "anime-UI",
+      "path": "showcase-anime-UI/",
+      "title": "Anime UI"
+    },
+    {
+      "section": "showcase",
+      "slug": "composite",
+      "path": "showcase-composite/",
+      "title": "Composite"
+    },
+    {
+      "section": "showcase",
+      "slug": "videosphere",
+      "path": "template-videosphere/",
+      "title": "360 Video"
+    },
+    {
+      "section": "showcase",
+      "slug": "curved-mockups",
+      "path": "showcase-curved-mockups/",
+      "title": "Curved Mockups"
+    },
+    {
+      "section": "showcase",
+      "slug": "spheres-and-fog",
+      "path": "showcase-spheres-and-fog/",
+      "title": "Spheres & Fog"
+    },
+    {
+      "section": "showcase",
+      "slug": "shopping",
+      "path": "showcase-shopping/",
+      "title": "Shopping"
+    },
+    {
+      "section": "showcase",
+      "slug": "warps",
+      "path": "animation-warps/",
+      "title": "Warp"
+    },
+    {
+      "section": "showcase",
+      "slug": "generic-logo",
+      "path": "animation-generic-logo/",
+      "title": "Logo"
+    },
+    {
+      "section": "showcase",
+      "slug": "unfold",
+      "path": "animation-unfold/",
+      "title": "Unfold"
+    },
+    {
+      "section": "showcase",
+      "slug": "sky",
+      "path": "template-sky/",
+      "title": "Panorama"
+    },
+    {
+      "section": "showcase",
+      "slug": "cursor",
+      "path": "interaction-cursor/",
+      "title": "Cursor & Hover"
+    },
+    {
+      "section": "showcase",
+      "slug": "lookat",
+      "path": "interaction-lookat/",
+      "title": "Look At"
+    },
+    {
+      "section": "showcase",
+      "slug": "basics",
+      "path": "entitycomponent-basics/",
+      "title": "Entity-Component"
+    }
+  ]
+};
+
+var examplesSubnav = document.querySelector('#examplesSubnav');
+var examplesRoutes = {};
+
+if (examplesSubnav) {
+  var li;
+  var a;
+  var span;
+  var url;
+  var className = '';
+
+  examples.examples.forEach(function (item, idx) {
+    url = '/examples/' + item.section + '/' + item.slug + '/';
+
+    className = url === pathWithSlash ? ' current' : '';
+
+    li = document.createElement('li');
+    li.setAttribute('data-url', url);
+    li.className = 'subnav-item' + className;
+
+    a = document.createElement('a');
+    a.setAttribute('href', url);
+    a.className = 'subnav-link' + className;
+
+    span = document.createElement('span');
+    span.className = 'sidebar__link__text';
+    span.textContent = item.title;
+
+    a.appendChild(span);
+    li.appendChild(a);
+    examplesSubnav.appendChild(li);
+
+    item.url = url;
+    item.li = li;
+    item.a = a;
+    item.span = span;
+
+    examplesRoutes[url] = item;
+    if (idx === 0) {
+      examplesRoutes.__default__ = item;
+    }
+  });
+}
+
+var exampleIframe = document.querySelector('#exampleIframe');
+
+var html = document.documentElement;
+var defaultTitle = html.getAttribute('data-title');
+
+function getTitle (title) {
+  return defaultTitle.replace('{title}', title);
+}
+
+if (exampleIframe) {
+  var currentExample;
+  if (pathWithSlash in examplesRoutes) {
+    currentExample = examplesRoutes[pathWithSlash];
+  }
+  if (!currentExample) {
+    currentExample = examplesRoutes.__default__;
+  }
+
+  document.title = getTitle(currentExample.title);
+
+  currentExample.li.classList.add('current');
+  currentExample.a.classList.add('current');
+
+  var baseUrl = exampleIframe.getAttribute('data-original-base-url');
+  var externalUrl = baseUrl + currentExample.path;
+  exampleIframe.setAttribute('data-path', currentExample.path);
+  exampleIframe.setAttribute('src', externalUrl);
+
+  var exampleViewsource = document.querySelector('#exampleViewsource');
+  if (exampleViewsource) {
+    var slug = stripTrailingSlashes(currentExample.path);
+    var sourceUrl = exampleViewsource.getAttribute('data-href').replace('{slug}', slug);
+    exampleViewsource.setAttribute('href', sourceUrl);
+  }
+}
+
 var body = document.body;
 
 // To customise the base URL for the <iframe>'d examples, do this in the Console:
