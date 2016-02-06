@@ -26,7 +26,8 @@
     <p class="page__section"><a href="<%- page_url(activeSection.path) %>" class="borderless-link"><%= activeSection.section_title %></a></p>
     <h1 class="page__title"><%= page.title %></h1>
 
-    <%- page.content %>
+    <div id="docs__main" class="docs__main">
+    </div>
 
     <footer class="footer guide-links c">
       <% site.pages.find({type: page.type, order: page.order - 1}).each(function (page) { %>
