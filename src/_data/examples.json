@@ -3,7 +3,7 @@
   "home": {
     "section": "home",
     "slug": "home",
-    "scene_url": "https://aframe.io/aframe/examples/animation-aframe-logo/?ui=false",
+    "scene_url": "http://localhost:9000/examples/animation-aframe-logo/?ui=false",
     "source_url": "https://github.com/aframevr/aframe/blob/master/examples/animation-aframe-logo/index.html",
     "title": "A-Frame Logo Animation"
   },

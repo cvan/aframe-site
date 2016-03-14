@@ -1,12 +1,16 @@
-<%- partial('partials/examples/sidebar', {site: site, page: page}) %>
+<header id="header" class="header">
+  <a id="logo" class="logo borderless-links" href="/">
+    <span class="logo__wordmark">A-Frame</span>
+  </a>
+  <iframe id="exampleIframe" class="example__iframe"
+          width="100%"
+          height="100%"
+          src="<%= site.data.examples.home.scene_url %>"
+          allowfullscreen="yes" scrolling="no"></iframe>
+</header>
 
 <div class="content content--index">
   <div class="aframe-animation">
-    <iframe id="exampleIframe" class="example__iframe"
-            width="100%"
-            height="100%"
-            src="<%= site.data.examples.home.scene_url %>"
-            allowfullscreen="yes" scrolling="no"></iframe>
   </div>
   <div class="copy__wrap">
     <ul class="menu">
