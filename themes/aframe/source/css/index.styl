@@ -1,7 +1,235 @@
 @import '_fonts'
 @import '_bulma'
 
+
+@font-face {
+  font-family: OCR-B-web;
+  src: url('../fonts/OCR-B-regular-web.eot');
+  src: url('../fonts/OCR-B-regular-web.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/OCR-B-regular-web.svg#ocrbregular') format('svg'),
+       url('../fonts/OCR-B-regular-web.woff') format('woff'),
+       url('../fonts/OCR-B-regular-web.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: KlimaWeb;
+  src: url('../fonts/klima/klima-ultralight-web.eot');
+  src: url('../fonts/klima/klima-ultralight-web.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/klima/klima-ultralight-web.svg#klimaultralight') format('svg'),
+       url('../fonts/klima/klima-ultralight-web.woff2') format('woff2'),
+       url('../fonts/klima/klima-ultralight-web.woff') format('woff'),
+       url('../fonts/klima/klima-ultralight-web.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: KlimaWeb;
+  src: url('../fonts/klima/klima-ultralight-italic-web.eot');
+  src: url('../fonts/klima/klima-ultralight-italic-web.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/klima/klima-ultralight-italic-web.svg#klimaultralight_italic') format('svg'),
+       url('../fonts/klima/klima-ultralight-italic-web.woff2') format('woff2'),
+       url('../fonts/klima/klima-ultralight-italic-web.woff') format('woff'),
+       url('../fonts/klima/klima-ultralight-italic-web.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+@font-face {
+  font-family: KlimaWeb;
+  src: url('../fonts/klima/klima-light-web.eot');
+  src: url('../fonts/klima/klima-light-web.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/klima/klima-light-web.svg#klimalight') format('svg'),
+       url('../fonts/klima/klima-light-web.woff2') format('woff2'),
+       url('../fonts/klima/klima-light-web.woff') format('woff'),
+       url('../fonts/klima/klima-light-web.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: KlimaWeb;
+  src: url('../fonts/klima/klima-light-italic-web.eot');
+  src: url('../fonts/klima/klima-light-italic-web.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/klima/klima-light-italic-web.svg#klimalight_italic') format('svg'),
+       url('../fonts/klima/klima-light-italic-web.woff2') format('woff2'),
+       url('../fonts/klima/klima-light-italic-web.woff') format('woff'),
+       url('../fonts/klima/klima-light-italic-web.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: KlimaWeb;
+  src: url('../fonts/klima/klima-regular-web.eot');
+  src: url('../fonts/klima/klima-regular-web.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/klima/klima-regular-web.svg#klimaregular') format('svg'),
+       url('../fonts/klima/klima-regular-web.woff2') format('woff2'),
+       url('../fonts/klima/klima-regular-web.woff') format('woff'),
+  url('../fonts/klima/klima-regular-web.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: KlimaWeb;
+  src: url('../fonts/klima/klima-regular-italic-web.eot');
+  src: url('../fonts/klima/klima-regular-italic-web.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/klima/klima-regular-italic-web.svg#klimaregular_italic') format('svg'),
+       url('../fonts/klima/klima-regular-italic-web.woff2') format('woff2'),
+       url('../fonts/klima/klima-regular-italic-web.woff') format('woff'),
+       url('../fonts/klima/klima-regular-italic-web.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: KlimaWeb;
+  src: url('../fonts/klima/klima-medium-web.eot');
+  src: url('../fonts/klima/klima-medium-web.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/klima/klima-medium-web.svg#klimamedium') format('svg'),
+       url('../fonts/klima/klima-medium-web.woff2') format('woff2'),
+       url('../fonts/klima/klima-medium-web.woff') format('woff'),
+       url('../fonts/klima/klima-medium-web.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: KlimaWeb;
+  src: url('../fonts/klima/klima-medium-italic-web.eot');
+  src: url('../fonts/klima/klima-medium-italic-web.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/klima/klima-medium-italic-web.svg#klimamedium_italic') format('svg'),
+       url('../fonts/klima/klima-medium-italic-web.woff2') format('woff2'),
+       url('../fonts/klima/klima-medium-italic-web.woff') format('woff'),
+       url('../fonts/klima/klima-medium-italic-web.ttf') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: KlimaWeb;
+  src: url('../fonts/klima/klima-bold-web.eot');
+  src: url('../fonts/klima/klima-bold-web.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/klima/klima-bold-web.svg#klimabold') format('svg'),
+       url('../fonts/klima/klima-bold-web.woff2') format('woff2'),
+       url('../fonts/klima/klima-bold-web.woff') format('woff'),
+       url('../fonts/klima/klima-bold-web.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: KlimaWeb;
+  src: url('../fonts/klima/klima-bold-italic-web.eot');
+  src: url('../fonts/klima/klima-bold-italic-web.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/klima/klima-bold-italic-web.svg#klimabold_italic') format('svg'),
+       url('../fonts/klima/klima-bold-italic-web.woff2') format('woff2'),
+       url('../fonts/klima/klima-bold-italic-web.woff') format('woff'),
+       url('../fonts/klima/klima-bold-italic-web.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: KlimaWeb;
+  src: url('../fonts/klima/klima-heavy-web.eot');
+  src: url('../fonts/klima/klima-heavy-web.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/klima/klima-heavy-web.svg#klimaheavy') format('svg'),
+       url('../fonts/klima/klima-heavy-web.woff2') format('woff2'),
+       url('../fonts/klima/klima-heavy-web.woff') format('woff'),
+       url('../fonts/klima/klima-heavy-web.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: KlimaWeb;
+  src: url('../fonts/klima/klima-heavy-italic-web.eot');
+  src: url('../fonts/klima/klima-heavy-italic-web.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/klima/klima-heavy-italic-web.svg#klimaheavy_italic') format('svg'),
+       url('../fonts/klima/klima-heavy-italic-web.woff2') format('woff2'),
+       url('../fonts/klima/klima-heavy-italic-web.woff') format('woff'),
+       url('../fonts/klima/klima-heavy-italic-web.ttf') format('truetype');
+  font-weight: 800;
+  font-style: italic;
+}
+
+body {
+  font-family: KlimaWeb, Helvetica Neue, Helvetica, sans-serif;
+}
+
 // Hide BrowserSync notifications.
 #__bs_notify__ {
   display: none !important;
+}
+
+.hero.is-main {
+  background: #24caff;
+}
+
+.hero.is-main .hero-content {
+  background: rgba(255,255,255,.55);
+  padding: 80px 0 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero,
+.hero-content {
+  position: relative;
+}
+
+.hero-iframe {
+  height: 100%;
+  // max-width: 600px;
+  position: absolute;
+  // top: -40px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+  // left: -300px;
+  width: 100%;
+}
+
+.hero-pitch {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-buttons .button {
+  background: #ef2d5e;
+  border-radius: 0;
+  border: 4px solid #ef2d5e;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  height: auto;
+  line-height: 1;
+  padding: .8rem 1.5rem .35rem;
+  transition: all .2s ease-in;
+  text-transform: uppercase;
+}
+
+.hero-buttons .button:hover {
+  background: transparent;
+  border-color: #333;
+  color: #333;
+}
+
+.hero.is-main .hero-buttons {
+  padding: 40px 0;
+}
+
+@media screen and (min-width: 769px) {
+  .hero-buttons.is-left {
+    -webkit-box-pack: flex-start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+.header {
+  background: #333;
+}
+
+.header .title {
+  color: #fff;
+}
+
+.header-item a:hover {
+  color: #ccc;
 }

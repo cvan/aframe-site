@@ -56,10 +56,10 @@
       <div class="container">
         <div class="header-left">
           <a class="header-item">
-            <img src="{{ site.baseurl }}/images/sparrow/logo.png" alt="Sparrow">
+            <img src="<%- url_for('images/aframe-logo.png') %>" alt="A-Frame" title="A-Frame">
           </a>
           <a class="header-item">
-            <strong class="title is-5">Sparrow</strong>
+            <strong class="title is-5">A-Frame</strong>
           </a>
         </div>
         <span id="header-toggle" class="header-toggle">
@@ -69,37 +69,38 @@
         </span>
         <div id="header-menu" class="header-right header-menu">
           <span class="header-item">
-            <a href="#">Home</a>
+            <a href="#">Docs</a>
           </span>
           <span class="header-item">
-            <a href="#">Features</a>
+            <a href="#">FAQ</a>
           </span>
           <span class="header-item">
-            <a href="#">Pricing</a>
+            <a href="#">Blog</a>
           </span>
           <span class="header-item">
-            <a href="#">About</a>
+            <a href="#">Community</a>
           </span>
           <span class="header-item">
-            <a href="#">Help</a>
+            <a href="#">Download</a>
+          </span>
+          <span class="header-item">
+            <a href="#">GitHub</a>
           </span>
         </div>
       </div>
     </header>
 
-    <section class="hero">
+    <section class="hero is-left is-main">
       <div class="hero-content">
         <div class="container">
-          <h1 class="title is-1">A-Frame</h1>
-          <h2 class="title is-3">Building blocks for the virtual reality web</h2>
-          <p>Use markup to create VR experiences that work across desktop, iOS, Android, and the Oculus Rift.</p>
+          <div class="hero-pitch">
+            <h1 class="title is-1">Building blocks for the virtual reality web</h1>
+            <p class="subtitle">Use markup to create VR experiences that work across desktop, iOS, Android, and the Oculus Rift.</p>
+            <p class="hero-buttons is-left"><a href="<%- url_for('docs/') %>" class="button">Get Started</a></p>
+          </div>
         </div>
       </div>
-      <div class="hero-footer">
-        <p class="iphone">
-          <img src="{{ site.baseurl }}/images/sparrow/iphone.png" alt="Sparrow iPhone">
-        </p>
-      </div>
+      <iframe id="hero-iframe" class="hero-iframe" src="https://aframe.io/aframe/examples/animation-aframe-logo/?ui=false" seamless></iframe>
     </section>
 
     <section class="hero">
