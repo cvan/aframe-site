@@ -233,7 +233,7 @@ body {
 }
 
 .header {
-  // background: #333;
+  background: none;
 }
 
 .header .title {
@@ -259,14 +259,6 @@ iframe {
   height: 60vh;
 }
 
-// .column-example {
-//   min-height: 60vh;
-// }
-
-.example-heading {
-
-}
-
 .box {
   box-shadow: none;
 }
@@ -277,19 +269,28 @@ iframe {
 }
 
 .logo-link {
-  background: rgb(239,45,94);
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 
-.logo-link {
-  border-radius: 200%;
+.logo-link-inner {
+  background: rgb(239,45,94);
+  border-radius: 200% 200% 0 0;
   // padding: 10px;
   display: block;
   position: absolute;
   left: -15%;
   right: -15%;
   bottom: 0;
+  transition: 0.2s all ease-in-out;
   width: 130%;
   z-index: 1;
+}
+
+.logo-link:hover .logo-link-inner {
+  padding: 1% 0;
+  // width: 160%;
 }
 
 .logo-wordmark {
@@ -299,7 +300,7 @@ iframe {
 }
 
 .logo {
-  border-radius: 5px;
+  // border-radius: 5px;
   // height: 140px;
   height: 190px;
   overflow: hidden;
@@ -308,10 +309,12 @@ iframe {
 }
 
 .logo-inner {
-  overflow: hidden;
   // height: 100px;
   height: 150px;
-  position: relative;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
   width: 100%;
 }
 
@@ -324,13 +327,3 @@ iframe {
   background: #24caff;
   border-bottom: #24caff 10px solid;
 }
-
-// .logo-wordmark:after {
-//   background: #24caff;
-//   content: "";
-//   display: block;
-//   height: 100px;
-//   position: relative;
-//   top: -100px;
-//   width: 100%;
-// }

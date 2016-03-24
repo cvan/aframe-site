@@ -60,14 +60,16 @@
         <div class="column column-example">
           <iframe id="example-iframe" class="example-iframe" src="http://localhost:9000/examples/showcase-spheres-and-fog/" allowfullscreen></iframe>
           <div class="example-description content box">
-            <h1 class="example-heading">Shadows &amp; Fog</h1>
+            <h1 class="example-heading">Spheres &amp; Fog</h1>
           </div>
 
         </div>
         <div id="header" class="column is-4 header">
           <div class="logo">
             <a href="<%- config.root %>" class="logo-link">
-              <img src="<%- url_for('images/aframe-name-white.svg') %>" alt="<%= config.title %>" title="<%= config.title %>" id="logo-wordmark" class="logo-wordmark">
+              <span class="logo-link-inner">
+                <img src="<%- url_for('images/aframe-name-white.svg') %>" alt="<%= config.title %>" title="<%= config.title %>" id="logo-wordmark" class="logo-wordmark">
+              </span>
             </a>
 
             <div class="logo-inner">
@@ -77,7 +79,8 @@
         </div>
       </div>
 
-<!--       <section class="hero is-left">
+      <!--
+       <section class="hero is-left">
         <div class="hero-content">
           <div class="container">
             <div class="hero-pitch">
@@ -88,56 +91,10 @@
           </div>
         </div>
         <iframe id="hero-iframe" class="hero-iframe" src="http://localhost:9000/examples/animation-aframe-logo/?ui=false" allowfullscreen></iframe>
-      </section> -->
+      </section>
+      -->
 
     </div>
-
-    <section class="hero">
-      <div class="hero-content">
-        <p class="subtitle is-5">As seen on</p>
-        <div class="press">
-          <img src="{{ site.baseurl }}/images/sparrow/techcrunch.png" alt="Techcrunch">
-          <img src="{{ site.baseurl }}/images/sparrow/wired.png" alt="Wired">
-          <img src="{{ site.baseurl }}/images/sparrow/venture-beat.png" alt="Venture Beat">
-          <img src="{{ site.baseurl }}/images/sparrow/business-insider.png" alt="Business Insider">
-        </div>
-      </div>
-    </section>
-
-    <section class="hero is-fullheight section-overview">
-      <div class="hero-content">
-        <div class="container">
-          <div class="columns">
-            <div class="column">
-              poop 1
-            </div>
-            <div class="column">
-              poop 2
-            </div>
-            <div class="column">
-             poop 3
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="download" class="section">
-      <div class="columns is-vcentered">
-        <div class="column">
-          <div id="perspective"></div>
-        </div>
-        <div class="column">
-          <p class="title">
-            Get it <strong>now</strong>.
-          </p>
-          <p class="badges">
-            <!-- <a href="#"><img src="{{ site.baseurl }}/images/sparrow/app-store-badge.svg" alt="App Store"></a> -->
-            <!-- <a href="#"><img src="{{ site.baseurl }}/images/sparrow/google-play-badge.png" alt="Play Store"></a> -->
-          </p>
-        </div>
-      </div>
-    </section>
 
     <%- js('js/common.js') %>
     <%- js('js/ga.js') %>
