@@ -1,7 +1,6 @@
 @import '_fonts'
 @import '_bulma'
 
-
 @font-face {
   font-family: OCR-B-web;
   src: url('../fonts/OCR-B-regular-web.eot');
@@ -146,8 +145,19 @@
   font-style: italic;
 }
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  background: #fff;
+}
+
 body {
   font-family: KlimaWeb, Helvetica Neue, Helvetica, sans-serif;
+  padding: 4rem;
 }
 
 // Hide BrowserSync notifications.
@@ -174,7 +184,7 @@ body {
 .hero-iframe {
   height: 100%;
   // max-width: 600px;
-  position: absolute;
+  // position: absolute;
   // top: -40px;
   bottom: 0;
   right: 0;
@@ -223,7 +233,7 @@ body {
 }
 
 .header {
-  background: #333;
+  // background: #333;
 }
 
 .header .title {
@@ -233,3 +243,94 @@ body {
 .header-item a:hover {
   color: #ccc;
 }
+
+img {
+  display: block;
+}
+
+iframe {
+  border: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.example-iframe {
+  height: 60vh;
+}
+
+// .column-example {
+//   min-height: 60vh;
+// }
+
+.example-heading {
+
+}
+
+.box {
+  box-shadow: none;
+}
+
+.example-description {
+  background: #def;
+  border-radius: 0;
+}
+
+.logo-link {
+  background: rgb(239,45,94);
+}
+
+.logo-link {
+  border-radius: 200%;
+  // padding: 10px;
+  display: block;
+  position: absolute;
+  left: -15%;
+  right: -15%;
+  bottom: 0;
+  width: 130%;
+  z-index: 1;
+}
+
+.logo-wordmark {
+  height: 20px;
+  margin: 15px 0;
+  width: 100%;
+}
+
+.logo {
+  border-radius: 5px;
+  // height: 140px;
+  height: 190px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.logo-inner {
+  overflow: hidden;
+  // height: 100px;
+  height: 150px;
+  position: relative;
+  width: 100%;
+}
+
+.logo-inner,
+.logo-iframe {
+  // border-radius: 5px 5px 0 0;
+}
+
+.logo-iframe {
+  background: #24caff;
+  border-bottom: #24caff 10px solid;
+}
+
+// .logo-wordmark:after {
+//   background: #24caff;
+//   content: "";
+//   display: block;
+//   height: 100px;
+//   position: relative;
+//   top: -100px;
+//   width: 100%;
+// }
