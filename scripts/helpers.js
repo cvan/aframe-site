@@ -124,6 +124,10 @@ hexo.extend.helper.register('docs_url_prefix', function (item) {
 
 hexo.extend.helper.register('is_external_url', isUrl);
 
+hexo.extend.helper.register('absolute_url_for', function (path) {
+  return this.url_for(urljoin(this.config.url, path));
+});
+
 hexo.extend.filter.register('urljoin', urljoin);
 
 hexo.extend.filter.register('after_render:html', function (str, data) {
