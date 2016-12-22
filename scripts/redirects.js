@@ -2,15 +2,12 @@ var fs = require('fs');
 var glob = require('glob');
 var join = require('path').join;
 
-var multidep = require('../multidep');
+var pkgMulti = require('../package-multi');
 var utils = require('../lib/utils');
 
 var MASTER = 'master';
 
-var aframeVersions = multidep.versions.aframe.map(function (version) {
-  if (version.constructor === Array) { return version[1]; }
-  return version;
-});
+var aframeVersions = Object.keys(pkgMulti.dependencies.aframe);
 aframeVersions.push(MASTER);
 
 hexo.extend.generator.register('site-redirects', function () {
@@ -126,11 +123,10 @@ function getComponentSectionRedirectObjs () {
  * And do that for every page in 0.2.0.
  */
 function getPreVersionedRedirectObjs () {
-  var paths = glob.sync('.multidep/aframe-0.2.0/node_modules/aframe/docs/**/*.md');
+  var paths = glob.sync('src/docs/0.2.0/**/*.md');
   return paths.map(function getRedirectObj (path) {
-    // `path` looks like `.multidep/aframe-0.2.0/node_modules/aframe/docs/<folder>/<file>.md`.
     // Pull out the last three paths and s/md/html (=> docs/<folder>/<file>.html).
-    path = path.split('/').slice(-3).join('/').replace('.md', '.html');
+    console.log('path', path);
     // Then create the redirect.
     return [path, path.replace('docs/', 'docs/0.2.0/')];
   });

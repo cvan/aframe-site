@@ -2,17 +2,14 @@ var cheerio = require('cheerio');
 var moment = require('moment');
 var striptags = require('striptags');
 
-var multidep = require('../multidep');
 var pkg = require('../package');
+var pkgMulti = require('../package-multi');
 var utils = require('../lib/utils');
 
 var isUrl = utils.isUrl;
 var urljoin = utils.urljoin;
 
-var aframeVersions = multidep.versions.aframe.map(function (version) {
-  if (version.constructor === Array) { return version[1]; }
-  return version;
-});
+var aframeVersions = Object.keys(pkgMulti.dependencies.aframe);
 
 var MASTER = 'master';
 var aframeCurrentSha = MASTER;
