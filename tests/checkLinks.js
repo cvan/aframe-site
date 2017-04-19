@@ -1,22 +1,22 @@
-var fs = require('fs');
-var path = require('path');
-var urllib = require('url');
+const path = require('path');
+const fs = require('fs');
+const url = require('url');
 
-var chalk = require('chalk');
-var cheerio = require('cheerio');
-var glob = require('glob');
-var Hexo = require('hexo');
-var request = require('request');
-var yaml = require('js-yaml');
+const chalk = require('chalk');
+const cheerio = require('cheerio');
+const glob = require('glob');
+const Hexo = require('hexo');
+const request = require('request');
+const yaml = require('js-yaml');
 
 require('es6-promise').polyfill();
 
-var hexo = new Hexo(path.resolve(__dirname, '..'), {});
-var HEXO_CONFIG = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', '_config.yml')));
-var LOCAL_SERVER_HOST = 'http://localhost:' +
+const hexo = new Hexo(path.resolve(__dirname, '..'), {});
+const HEXO_CONFIG = yaml.safeLoad(fs.readFileSync(path.join(__dirname, '..', '_config.yml')));
+const LOCAL_SERVER_HOST = 'http://localhost:' +
   (HEXO_CONFIG.server.port || '80') +
   (HEXO_CONFIG.root || '').replace(/\/+$/, '');
-var REQUEST_OPTS = {
+const REQUEST_OPTS = {
   followAllRedirects: true,
   rejectUnauthorized: false,
   timeout: 10000,
@@ -24,10 +24,12 @@ var REQUEST_OPTS = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.11; rv:45.0) Gecko/20100101 Firefox/45.0'
   }
 };
-var WWW_DIR = 'public';
+const PORT =
+const PORT =
+const WWW_DIR = 'public';
 
-var linksUnique = [];
-var linksPromises = [];
+let linksUnique = [];
+let linksPromises = [];
 
 hexo.init().then(function () {
   return hexo.call('generate', {});
@@ -35,6 +37,17 @@ hexo.init().then(function () {
 .then(checkLinks)
 .catch(function (err) {
   console.log(err.stack);
+});
+
+recrawler('http://some-url.com/#!/list')
+  .then($ => {
+    // your code goes here
+    const src = $('img').attr('src')
+  });
+
+webtouch('http://www.google.com', function (e, urls) {
+  if (e) throw e
+  console.log(urls)
 });
 
 function checkLinks () {
@@ -80,7 +93,7 @@ function fileParse (docUri, text) {
     if (uri.substr(0, 2) !== '//' &&
         uri.substr(0, 5) !== 'http:' &&
         uri.substr(0, 6) !== 'https:') {
-      uri = urllib.resolve(LOCAL_SERVER_HOST, docUri, uri);
+      uri = url.resolve(LOCAL_SERVER_HOST, docUri, uri);
     }
 
     if (linksUnique.indexOf(uri) !== -1) { return; }

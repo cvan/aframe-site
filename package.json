@@ -29,9 +29,12 @@
   "devDependencies": {
     "es6-template-strings": "^2.0.1",
     "hexo-cli": "1.0.2",
+    "http-server": "^0.9.0",
     "multidep": "github:ngokevin/node-multidep",
+    "recrawler-spa": "^3.0.0",
     "recursive-copy": "^2.0.5",
     "rmdir": "^1.2.0",
+    "shx": "^0.2.2",
     "superagent": "^2.3.0",
     "superagent-promise": "^1.1.0",
     "yaml-cat": "^0.3.2"
@@ -49,8 +52,11 @@
     "generateawoa": "node node_scripts/generateAWeekofAFrame.js",
     "generate:config": "yaml-cat _config.prod.yml _config.local.yml -n -m > _config.yml",
     "installdocs": "multidep multidep.json && npm run copydocs",
+    "build": "shx rm -rf public && mkdir -p public && npm run bumpdocs && npm run generate",
+    "preprod": "npm run build",
+    "prod": "http-server -c-1 public",
     "server": "hexo server",
     "start": "npm run dev",
-    "test": "node script/checkLinks.js"
+    "test": "node tests/checkLinks.js"
   }
 }
