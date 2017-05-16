@@ -31,7 +31,7 @@
       data-aframe-version="<%= config.aframe_version %>"
       data-docs-version="<%= docs_active_version(page) %>">
   <head>
-    <title><%- pageTitle.replace('<', '&lt;') %></title>
+    <title><%- pageTitle.replace('<', '&lt;').replace('>', '&gt;') %></title>
     <%- partial('partials/force_https') %>
     <meta charset="utf-8">
     <!-- Don't index old documentation pages. -->
@@ -39,7 +39,7 @@
       content="<%- docs_active_version(page) === config.aframe_version ? config.robots : 'NOINDEX' %>">
     <meta name="description" content="<%= meta_description(page) %>">
     <meta name="keywords" content="<%= config.keywords.join(',') %>">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="canonical" href="<%= config.url %>">
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,600" rel="stylesheet">
     <meta property="fb:app_id" content="<%- config.fb_app_id %>">
@@ -60,7 +60,8 @@
     <meta name="theme-color" content="<%- config.theme_color %>">
     <link rel="icon" sizes="192x192" href="<%- absolute_url_for('images/aframe-logo-192.png') %>">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#ef2d5e">
+    <meta name="theme-color" content="#ef2d5e">
     <link rel="apple-touch-icon" href="<%- absolute_url_for('images/aframe-logo-152.png') %>">
     <link rel="alternate" type="application/rss+xml" title="Feed" href="<%- absolute_url_for(config.feed.path) %>">
     <%- partial('partials/ga') %>
@@ -69,18 +70,19 @@
       <%- js('js/compat.js') %>
     <% } %>
 
-    <% if (showExamples) { %>
+    <% if (isHome) { %>
       <%- css('css/index') %>
-      <% if (!isHome) { %>
-        <%- css('css/examples') %>
-      <% } %>
+      <script async src="https://assets.codepen.io/assets/embed/ei.js"></script>
+      <script async src="https://platform.twitter.com/widgets.js"></script>
+    <% } else if (showExamples) { %>
+      <%- css('css/examples') %>
     <% } else if (!is404) { %>
       <%- css('css/secondary') %>
     <% } %>
 
     <% if (isDocs || is404) { %>
       <!-- Search. -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css"/>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css">
       <%- css('css/search') %>
     <% } %>
   </head>

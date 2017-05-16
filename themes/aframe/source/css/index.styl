@@ -1,169 +1,274 @@
-@import "_common"
-@import "_settings"
+$color-background = #fff;
+$color-primary = #ef2d5e;
+$color-white = #fff;
+$font-copy = BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+$font-mono = Consolas, Andale Mono, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+$font-wordmark = Futura, $font-copy;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  background-color: $color-background;
+  font-size: 14px;
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+body,
+.copy {
+  font-family: $font-copy;
+}
 
 code,
 pre,
-.example__viewsource,
-.sidebar .page-title,
-.menu-item a {
-  font-family: $code-font;
-}
-.hidden {
-  display !important;
-}
-em {
-  color: #7f8c8d;
+tt
+.code,
+.tt,
+.mono {
+  font-family: $font-mono;
 }
 
-html[data-is-home="true"] {
-  min-width: 1000px;
+.wrap {
+  margin: 0 auto;
+  max-width: 70rem;
+  padding: 0 1.5rem;
 }
-body {
-  color: #fff;
+
+.header {
+  background-color: $color-primary;
+  padding: 3rem 0;
+  text-align: center;
+  width: 100%;
 }
-a {
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.5);
+
+.wordmark {
+  color: rgba(0,0,0,.2);
+  font-size: 2.5rem;
+  font-family: $font-mono;
+  text-transform: uppercase;
+  letter-spacing: .25ch;
+  font-weight: 300;
+}
+
+.wordmark span {
+  color: $color-white;
+  font-family: $font-wordmark;
+  font-weight: bold;
+  text-shadow: 1px 2px 0 rgba(0,0,0,.25);
+}
+
+.wordmark:before,
+.wordmark:after {
+  display: inline;
+}
+
+.wordmark:before {
+  content: "<";
+  padding-right: .175ch;
+}
+
+.wordmark:after {
+  content: ">";
+  padding-left: .175ch;
+}
+
+.description {
+  color: rgba(0,0,0,.5);
+  font-family: $font-wordmark;
+  padding-top: .5rem;
+}
+
+.hello-world {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+[data-section] h2 {
+  padding-bottom: 1.5rem;
+}
+
+[data-section] p + p {
+  padding-top: 1rem;
+}
+
+[data-section] {
+  border-bottom: 1px dotted #eee;
+  margin-bottom: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+[data-section] > .wrap {
+  align-items: start;
+  display: flex;
+}
+
+[data-section~="intro"] {
+  border-bottom-width: 0;
+  margin-bottom: 0;
+}
+
+[data-section] aside[data-aside] {
+  max-width: 50%;
+  padding-right: 3rem;
+  flex: 1;
+}
+
+[data-section] section {
+  padding-left: 3rem;
+  flex: 1;
+}
+
+[data-section~="hello-world"] {
+  display: block;
+
+  section {
+    padding-top: 3rem;
+    padding-left: 0;
+  }
+}
+
+a,
+a:visited {
+  color: blue;
+}
+
+a:hover {
+  color: magenta;
+}
+
+h2,
+h2 a,
+h2 a:visited {
+  color: #333;
+}
+
+h2 a {
   text-decoration: none;
 }
-a:hover {
-  border-bottom-color: rgba(255,255,255,0.3);
-  color: rgba(255,255,255,0.75);
-}
-a:active,
-a.click {
-  border-bottom-color: rgba(255,255,255,0.5);
-  color: #fff;
-}
-ul {
-  list-style-type: none;
-}
-.logo__wordmark {
-  background: url("../images/aframe-name-white.svg") no-repeat;
-}
-.sidebar {
-  background: #ef2d5e;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: none;
-  width: 270px;
-}
-.sidebar::-webkit-scrollbar {
-  width: 0 !important;
+
+h2 a:hover {
+  color: #111;
 }
 
-.sidebar .page-title {
-  font-size: 15px;
-  color: rgba(0,0,0,0.6);
-  font-weight: 100;
-  letter-spacing: 0.02em;
+.code-snippet {
+  background: rgba(17,17,17,.8);
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 2px;
+  color: #fff;
+  width: 100%;
+  overflow-x: auto;
+  padding: .5rem 1rem;
 }
-.main {
-  background: #ef2d5e;
-  display: flex;
-  height: 100%;
+
+[data-section~="communities"],
+[data-section~="demos"],
+[data-section~="feed"],
+[data-section~="workflows"] {
+  ul {
+    list-style-type: none;
+  }
 }
-.sidebar,
-.content {
-  position: relative;
+
+.btn {
+  background: #fff;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 2px;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  transition: .15s scale ease-in-out;
+  transform: scale(.8);
 }
-.sidebar {
-  max-width: 400px;
-  overflow-x: hidden;
+
+.btn:hover,
+.btn:active {
+  border-color: rgba(0,0,0,.4);
+  transform: scale(1);
 }
-.sidebar__wrap {
-  height: 100vh;
-  position: relative;
-  overflow-y: auto;
+
+[data-section] [data-aside] aside {
+  padding-top: 1.5rem;
+
+  h3 {
+    color: #666;
+    padding-top: .5rem;
+  }
+
+  p {
+    padding: .5rem 0;
+  }
 }
-.content {
-  flex: 1;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-}
-.example__controls {
-  position: absolute;
-  text-transform: uppercase;
-  top: 5px;
-  right: 5px;
-  z-index: 2;
-  font-size: 12px;
-  line-height: 1.5;
+
+[data-section] section {
+  li + li {
+    padding-top: .5rem;
+  }
+
   a {
-    background: rgba(0,0,0,0.35);
-    color: #fff;
-    display: inline-block;
-    padding: 5px 10px;
-    &:active, &:hover {
-      background-color: #ef2d5e;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
     }
   }
 }
-.aframe-animation .example__controls {
-  display: none;
+
+.tri-grid {
+  display: flex;
+  margin: 0 0 0 -1.5rem;
+  padding-top: 1.5rem;
+  max-width: 20rem;
+
+  li {
+    flex: 1;
+    padding: 0 1.5rem;
+    max-width: 20rem;
+  }
 }
-[data-is-mobile="true"] .example__controls {
-  display: none;
-}
-.page__title {
-  line-height: 1.3;
-  font-size: 36px;
-  font-weight: 600;
-}
-.subnav-link {
-  font-size: 16px;
-  font-weight: 300;
-  margin-left: -3px;
-  padding: 2px 4px 2px 3px;
-  display: block;
-  transition: 0.05s color ease;
-  color: #fff;
-  width: 100%;
-}
-.subnav-link:hover {
-  background-color: rgba(0,0,0,0.05);
-  color: #fff;
-}
-.subnav-link:active,
-.subnav-link.click {
-  background-color: rgba(0,0,0,0.5);
-}
-.subnav-link.current,
-.subnav-link.current:hover {
-  font-weight: 500;
-  color: #fff;
-}
-.example__iframe {
+
+[data-section~="feed"] {
   display: block;
 }
-.example-nav-link {
-  border: 0;
-  height: 100%;
-  font-size: 2rem;
-  font-weight: 600;
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  margin: -0.5rem -1rem;
-  width: 50%;
+
+/*
+[data-section~="feed"] section ul {
+  display: flex;
+  max-width: 30rem;
+  overflow-y: auto;
+
+  li {
+    flex: .5;
+  }
 }
-.example-nav-link span {
-  display: none;
+*/
+
+.cta {
+  padding: 1rem 0;
 }
-.example-nav-next {
-  text-align: right;
+
+.description a {
+  color: rgba(0,0,0,.5);
+  transition: .15s color ease-in-out;
 }
-.credits {
-  background: url("../images/mozvr-white.svg") 45% 60% no-repeat;
-  background-size: 80% 80%;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  height: 50px;
-  width: 90px;
-  margin: 0px 20px 20px;
+.description a:hover {
+  color: rgba(0,0,0,.75);
 }
-.credits:hover {
-  background-color: rgba(0,0,0,0.1);
+
+.in-the-wild {
+  h3 {
+    margin-bottom: -1rem;
+    padding-top: 2.5rem;
+  }
 }
 
 .sponsor {
@@ -184,12 +289,11 @@ ul {
 }
 a.mozilla-logo {
   display: inline-block;
-  opacity: 0.8;
-  background: url(../images/mozilla-logo.svg) no-repeat;
+  opacity: .8;
   height: 24px;
-  width: 88px;
+  width: 84px;
   border: none;
-  position: relative;
+  margin-left: .25ch;
   top: 1px;
   transition: .15s opacity ease-in-out;
 }
@@ -197,161 +301,11 @@ a.mozilla-logo:hover {
   opacity: 1;
 }
 
-.examples-subnav {
-  margin-top: 0.5rem;
-}
-.btn-index {
-  color: #fff;
-}
-.content--examples,
-.content--body {
-  height: 100%;
-}
-.content--examples .content--body {
-  background: #DADADA;
-}
-.content--index {
-  flex-direction: row;
-}
-.content--index .slogan {
-  color: #fff;
-  font-size: 28px;
-  font-weight: 300;
-  line-height: 1.2;
-  letter-spacing: -0.05rem;
-}
-.content--index .intro {
-  color: #fff;
-  font-size: 16.5px;
-  font-weight: 300;
-  line-height: 1.55;
-  margin-top: 10px;
-  width: 350px;
-}
-.content--index .disclaimer {
-  color: rgba(255,255,255,0.5);
-}
-.menu {
-  margin-bottom: 38px;
-}
-.menu-item {
+.mozilla-logo-wordmark {
+  background: url(../images/mozilla-logo.svg) no-repeat;
   display: inline-block;
-}
-.menu-item a {
-  text-transform: uppercase;
-  color: rgba(0,0,0,0.75);
-  margin-right: 20px;
-  border: none;
-}
-.menu-item a:hover {
-  color: #000;
-  background-color: rgba(0,0,0,0.02);
-  border-bottom: 1px solid rgba(0,0,0,0.5);
-}
-.get-started {
-  background-color: #fff;
-  border: 3px solid #fff;
-  color: #000;
-  display: inline-block;
-  font-size: 15px;
-  font-weight: 300;
-  letter-spacing: 0.05rem;
-  margin-top: 20px;
-  padding: 8px 30px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.05s ease;
-}
-.get-started:hover {
-  background-color: #fff;
-  color: #ef2d5e;
-}
-.get-started:active {
-  opacity: 0.8;
-}
-.mobile-get-started {
-  display: none;
-}
-@media screen and (max-width: 399px) {
-  #logo {
-    max-width: 40vw;
-  }
-}
-@media screen and (min-width: 480px) {
-  .example__controls {
-    top: 20px;
-    right: 20px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .example__controls {
-    top: 30px;
-    right: 30px;
-  }
-}
-@media only screen and (max-device-width: 736px) and (orientation: landscape) {
-  .sidebar {
-    display: none;
-  }
-}
-
-// Hide items based on compatibility.
-// Example: "360 Video" example on mobile until autoplay/inline video UX issues handled properly.
-// See https://github.com/aframevr/aframe/issues/316
-[data-is-android="true"] [data-supports-android="false"],
-[data-is-ios="true"] [data-supports-ios="false"] {
-  display: none !important;
-}
-
-.home-content {
-  display: flex;
-}
-
-.home-center {
-  background-color: #24CAFF;
-  flex: 2;
-  height: 100vh;
-  width: 100%;
-}
-
-.content--index .copy__wrap {
-  flex: 1;
-  min-width: 440px;
-}
-
-.home-feature-links {
-  display: none;
-  font-size: 16px;
-  font-weight: 300;
-  margin-bottom: 25px;
-
-  li {
-    margin-left: -3px;
-    padding: 2px 4px 2px 3px;
-    text-transform: uppercase;
-
-    &:hover {
-      background-color: rgba(0,0,0,0.05);
-    }
-  }
-  a {
-    border: 0;
-    color: #FFF;
-    display: block;
-  }
-}
-
-[data-is-mobile="false"] .home-feature-links {
-  display: block;
-}
-
-.example-tracked-controllers {
-  display: inline-block;
-  height: 18px;
-  left: 1px;
-  position: relative;
-  top: 4px;
-  width: 20px;
+  height: 24px;
+  width: 84px;
 }
 
 .blog-list {

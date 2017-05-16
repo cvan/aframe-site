@@ -1,47 +1,267 @@
-<%- partial('partials/examples/sidebar', {site: site, page: page}) %>
+<section id="intro" data-section="intro">
+  <header class="header">
+    <div class="wrap">
+      <h1 class="wordmark"><span>A-Frame</span></h1>
+      <p class="description">A free, <a href="https://github.com/aframevr/aframe">open-source</a> framework for making Virtual Reality on the Web</p>
+    </div>
+  </header>
+</section>
 
-<div class="content content--index home-content">
-  <div class="home-center">
-    <iframe
-      id="exampleIframe" class="example__iframe"
-      width="100%" height="100%"
-      src="<%= site.data.examples.home.scene_url %>"
-      allowfullscreen="yes" allowvr="yes" scrolling="no"></iframe>
+<section id="hello-world" data-section="hello-world">
+  <div class="wrap">
+    <aside data-aside="hello-world">
+      <h2><a href="#hello-world">Make a VR world in 10 lines of HTML code!</a></h2>
+      <p>A-Frame lets you make 3D, VR applications using HTML tags and JavaScript components.</p>
+      <p>Even without a VR headset, you get out-of-the-box cross-platform support for mobile and desktop VR: <a href="cardboard">Cardboard</a>, <a href="gear-vr">Gear VR</a>, <a href="daydream">Daydream</a>, <a href="rift">Rift</a>, and <a href="vive">Vive</a>.</p>
+    </aside>
+    <section>
+      <p data-height="380" data-theme-id="19139" data-slug-hash="BjygdO" data-default-tab="html,result" data-user="mozvr" data-embed-version="2" data-pen-title="Hello World â A-Frame" data-editable="true" class="codepen">See the Pen <a href="http://codepen.io/mozvr/pen/BjygdO/">Hello World &ndash; A-Frame WebVR</a> by Mozilla VR (<a href="http://codepen.io/mozvr">@mozvr</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+    </section>
   </div>
+</section>
 
-  <div class="copy__wrap">
-    <ul class="menu">
-      <li class="menu-item">
-        <a href="<%- url_for(docs_root_path(site.pages, config.aframe_version)) %>">Docs</a>
-      </li>
-      <li class="menu-item">
-        <a href="<%- url_for('faq/') %>">FAQ</a>
-      </li>
-      <li class="menu-item">
-        <a href="<%- url_for('blog/') %>">Blog</a>
-      </li>
-      <li class="menu-item">
-        <a href="<%- url_for('community/') %>">Community</a>
-      </li>
-      <li class="menu-item">
-        <a href="<%- config.github.aframe.url %>" rel="external">GitHub</a>
-      </li>
-    </ul>
-
-    <%- page.content %>
-
-    <a href="<%- url_for('docs/' + config.aframe_version + '/introduction/') %>"
-       class="get-started nav-link">
-      Get Started
-    </a>
-
-    <span class="sponsor" itemscope itemprop="organization" itemtype="http://schema.org/Organization">
-      <div class="message">Supported by</div>
-      <span itemprop="sponsor" itemscope itemtype="http://schema.org/Organization">
-        <a class="mozilla-logo" itemprop="url" href="https://www.mozilla.org/" rel="external">
-          <span itemprop="name"></span>
-        </a>
-      </span>
-    </span>
+<section id="communities" data-section="communities">
+  <div class="wrap">
+    <aside data-aside="communities">
+      <h2><a href="#communities">Designed for makers like you</a></h2>
+      <p>A-Frame exists not just as a framework but as a gateway for you to help pioneer the next generation, the Renaissance, of the Web for 3D. Join the makers just like you!</p>
+    </aside>
+    <section>
+      <ul>
+        <li>
+          <a href="education">
+            Educators &amp; Students
+          </a>
+        </li>
+        <li>
+          <a href="film">
+            Filmakers &amp; Cinephiles
+          </a>
+        </li>
+        <li>
+          <a href="travel">
+            Travelers &amp; Nomads
+          </a>
+        </li>
+        <li>
+          <a href="music">
+            Musicians &amp; Audiophiles
+          </a>
+        </li>
+        <li>
+          <a href="architecture">
+            Architects &amp; Interior Designers
+          </a>
+        </li>
+        <li>
+          <a href="art">
+            Artists &amp; Painters
+          </a>
+        </li>
+        <li>
+          <a href="relax">
+            Explorers who just want to relax
+          </a>
+        </li>
+      </ul>
+    </section>
   </div>
-</div>
+</section>
+
+<section id="demos" data-section="demos">
+  <div class="wrap">
+    <aside data-aside="demos">
+      <h2>What can you build?</h2>
+      <p>If you can think it, you can build it. And the <a href="community/">A-Frame Community</a> is here to help!</p>
+      <p>Learn A-Frame step by step:</p>
+      <p class="cta"><a class="btn" href="https://aframe.io/aframe-school/">🎒 &nbsp; A-Frame School</a></p>
+      <p>Dive into the A-Frame documentation:</p>
+      <p class="cta"><a class="btn" href="https://aframe.io/docs/">📖 &nbsp; A-Frame Docs</a></p>
+    </aside>
+    <section>
+      <ul>
+        <li><a href="360-image">360&deg; image galleries</a></li>
+        <li><a href="360-video">360&deg; video players</a></li>
+        <li><a href="meditative-rooms">Meditative rooms</a></li>
+        <li><a href="visualizations">Data visualizations</a></li>
+        <li><a href="voxels">Minecraft/LEGO playgrounds</a></li>
+      </ul>
+    </section>
+  </div>
+</section>
+
+<section id="workflows" data-section="workflows">
+  <div class="wrap">
+    <aside data-aside="demos">
+      <h2><a href="#workflows">Works with your tools</a></h2>
+      <p>If you can think it, you can build it. And the <a href="community/">A-Frame Community</a> is here to help!</p>
+      <aside data-aside="install-npm">
+        <h3>Install from <a href="https://www.npmjs.com/">npm</a></h3>
+        <p>To add A-Frame to your project:</p>
+        <pre class="code-snippet"><code><span style="color: #bbb">npm install</span> <span style="color: #999">--save</span> <span style="color: cyan">aframe</span></code></pre>
+      </aside>
+      <aside data-aside="install-npm">
+        <h3>Use A-Frame by URL</h3>
+        <p>To add A-Frame to your project:</p>
+        <pre class="code-snippet"><code><span style="color: #bbb">&lt;script src=&quot;<a href="https://aframe.io/releases/0.5.0/aframe.min.js" style="color: cyan">https://aframe.io/releases/0.5.0/aframe.min.js</a>&quot;&gt;&lt;/script&gt;</span></code></pre>
+      </aside>
+    </aside>
+    <section>
+      <ul>
+        <li>
+          <a href="sketch">Sketch</a>
+        </li>
+        <li>
+          <a href="blender">Blender</a>
+        </li>
+        <li>
+          <a href="react">React</a>
+        </li>
+        <li>
+          <a href="vue">Vue</a>
+        </li>
+        <li>
+          <a href="node">Node &amp; npm</a>
+        </li>
+        <li>
+          <a href="unity">Unity</a>
+        </li>
+        <li>
+          <a href="shaders">Shaders</a>
+        </li>
+        <li>
+          <a href="codepen">CodePen</a>
+        </li>
+        <li>
+          <a href="glitch">Glitch</a>
+        </li>
+        <li>
+          <a href="thimble">Thimble</a>
+        </li>
+        <li>
+          <a href="itch">Itch</a>
+        </li>
+        <li>
+          <a href="github">GitHub</a>
+        </li>
+        <li>
+          <a href="neocities">Neocities</a>
+        </li>
+      </ul>
+    </section>
+  </div>
+</section>
+
+<section id="feed" data-section="feed">
+  <div class="wrap">
+    <aside data-disabled-aside="feed">
+      <h2><a href="#feed">What A-Framers are building</a></h2>
+      <p>The Internet is more than tubes and <code>1</code>s &amp; <code>0</code>s.</p>
+      <p>It's about the vibrant creative content that is easy to make, share, and come to life on computer screens, smartphones, and now VR headsets&hellip; thanks to A-Frame makers like you.</p>
+      <h3 style="padding-top: 2rem; padding-bottom: .5rem">Used by these fine folks</h3>
+      <p><a href="">Amnesty International</a> &nbsp;⧉&nbsp; <a href="">The Washington Post</a> &nbsp;⧉&nbsp; <a href="">iStaging</a> &nbsp;⧉&nbsp; <a href="">Google Creative Lab</a> <br> &nbsp;⧉&nbsp; <a href="">Shopify</a> &nbsp;⧉&nbsp; <a href="">NPR</a> &nbsp;⧉&nbsp; <a href="">OpenNews (Knight Foundation)</a> &nbsp;⧉&nbsp; <a href="">eko (for Tribeca Film Festival)</a></p>
+    </aside>
+    <div id="in-the-wild" class="in-the-wild">
+      <h3><a href="#in-the-wild">In the wild</a></h3>
+      <ul class="tri-grid">
+        <li>
+  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Mix tunes among trees with people around the world in The Musical Forest, a <a href="https://twitter.com/hashtag/WebVR?src=hash">#WebVR</a> Experiment → <a href="https://t.co/kVaMiooQs6">https://t.co/kVaMiooQs6</a> <a href="https://t.co/vIW17ul5CN">pic.twitter.com/vIW17ul5CN</a></p>&mdash; Google (@Google) <a href="https://twitter.com/Google/status/852613738720931840">April 13, 2017</a></blockquote>
+       </li>
+        <li>
+  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Broken Night, interactive VR film premiering at <a href="https://twitter.com/Tribeca">@Tribeca</a> Film Festival. Made with <a href="https://twitter.com/aframevr">@aframevr</a> by <a href="https://twitter.com/Opherv">@Opherv</a> &amp; Gary Weiss. <a href="https://t.co/tX8hwAA7uU">https://t.co/tX8hwAA7uU</a> <a href="https://t.co/Bcb3zOQ1Hy">pic.twitter.com/Bcb3zOQ1Hy</a></p>&mdash; A-Frame (@aframevr) <a href="https://twitter.com/aframevr/status/858082819385442304">April 28, 2017</a></blockquote>
+        </li>
+        <li>
+  <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Rough demo of <a href="https://twitter.com/AutodeskRevit" target="_blank" rel="external">@AutodeskRevit</a> to <a href="https://twitter.com/hashtag/WebAR?src=hash" target="_blank" rel="external">#WebAR</a> using &lt;a href=”<a href="https://twitter.com/artoolkit" target="_blank" rel="external">https://twitter.com/artoolkit</a>“&gt;@artoolkit_ &amp; <a href="https://twitter.com/aframevr" target="_blank" rel="external">@aframevr</a><br>Try @ <a href="https://t.co/KadkFXySFG" target="_blank" rel="external">https://t.co/KadkFXySFG</a><br>using marker @ <a href="https://t.co/beDtiD09lP" target="_blank" rel="external">https://t.co/beDtiD09lP</a> <a href="https://t.co/PFs9OscFQ8" target="_blank" rel="external">pic.twitter.com/PFs9OscFQ8</a></p>&mdash; Convert3D (@Convert3D) <a href="https://twitter.com/Convert3D/status/856003355004379136" target="_blank" rel="external">April 23, 2017</a></blockquote>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="help" data-section="help">
+  <div class="wrap">
+    <aside data-aside="help">
+      <h2><a href="#help">Get help! Give help!</a></h2>
+      <p>Need some help? Want to help a fellow A-Framer out?</p>
+    </aside>
+    <section>
+      <ul>
+        <li><a href="">Ask <code>#aframe</code> questions on Stack Overflow</a></li>
+        <li><a href="">Answer <code>#aframe</code> questions on Stack Overflow</a></li>
+        <li><a href="">Answer questions on the A-Frame Slack chat</a></li>
+        <li><a href="">Answer questions on the A-Frame <code>/r/webvr</code> sub-Reddit</a></li>
+      </ul>
+    </section>
+  </div>
+</section>
+
+<section id="events" data-section="events">
+  <div class="wrap">
+    <aside data-aside="events">
+      <h2><a href="#events">Events</a></h2>
+      <p>The A-Frame community is actively growing! Meet in physical reality to talk about virtual reality.</p>
+      <p>If you&rsquo;d like to find a location to test out your A-Frame sites &ndash; or just play around! &ndash; check out <a href="http://www.roomscale.org/">Roomscale.org</a> for a list of locations to swing by and treat yourself to some VR.
+    </aside>
+    <section>
+      <ul>
+        <li><a href="">May 8, 2017 &mdash; SFHTML5 &ndash; WebVR</a></li>
+        <li><a href="">May 10, 2017 &mdash; A-Frame Meetup (San Francisco, CA)</a></li>
+        <li><a href="">June 15, 2017 &mdash; A-Framers Meetup (Tokyo, Japan)</a></li>
+      </ul>
+    </section>
+  </div>
+</section>
+
+<section id="jobs" data-section="jobs">
+  <div class="wrap">
+    <aside data-aside="jobs">
+      <h2><a href="#jobs">Jobs</a></h2>
+      <p></p>
+    </aside>
+    <section>
+      <ul>
+        <li><a href="">Mozilla &mdash; WebAR Engineer (Remote, Anywhere)</a></li>
+        <li><a href="">Greenflash &mdash; WebVR Services Engineer (San Francisco, CA)</a></li>
+        <li><a href="">SpringScreen &mdash; WebVR UX/UI Usability Consultant (Berlin, Germany)</a></li>
+      </ul>
+    </section>
+  </div>
+</section>
+
+<section id="press" data-section="press">
+  <div class="wrap">
+    <aside data-aside="press">
+      <h2><a href="#press">Press &amp; Branding</a></h2>
+    </aside>
+    <section>
+      <p><a href="press">Press kits</a></p>
+      <p><a href="branding">Branding assets for logos, posters, stickers, etc.</a></p>
+      <p>You can always find us on <a href="https://twitter.com/mozilla">Twitter at <code>@aframevr</code></a>, or email us at <a href="mailto:press@mozilla.com">press@mozilla.com</a> if you&rsquo;d like to speak with someone about publication requests and speaking engagements.</p>
+    </section>
+  </div>
+</section>
+
+<section id="supported" data-section="supported">
+  <div class="wrap">
+    <aside data-aside="supported">
+      <h2>
+        <span class="sponsor" itemscope itemprop="organization" itemtype="http://schema.org/Organization">
+          <a class="mozilla-logo" itemprop="url" href="https://www.mozilla.org/" rel="external">
+            <div class="message">Supported by</div>
+            <span class="mozilla-logo-wordmark" itemprop="name">Mozilla</span>
+          </a>
+        </span>
+      </h2>
+      <p><a href="https://vr.mozilla.org/">Learn more about <strong>Mozilla&rsquo;s VR</strong> initiative!</a></p>
+    </aside>
+    <section>
+      <ul>
+        <li><a href="<%- page_url('code-of-conduct') %>">Code of Conduct</a></li>
+        <li><a href="<%- page_url('contributing') %>">Contributing Guidelines</a></li>
+        <li><a href="<%- page_url('privacy') %>">Privacy Policy</a></li>
+        <li><a href="<%- page_url('legal') %>">Legal Policy</a></li>
+        <li><a href="<%- page_url('data-collection') %>">Data Collection Policy</a></li>
+      </ul>
+    </section>
+  </div>
+</section>
