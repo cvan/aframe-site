@@ -300,7 +300,6 @@ a.mozilla-logo {
 a.mozilla-logo:hover {
   opacity: 1;
 }
-
 .mozilla-logo-wordmark {
   background: url(../images/mozilla-logo.svg) no-repeat;
   display: inline-block;
@@ -308,30 +307,26 @@ a.mozilla-logo:hover {
   width: 84px;
 }
 
-.blog-list {
-  display: none;
-  padding-bottom: 10px;
-  +media--desktop() {
-    display: block;
+.logo {
+  display: block;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  text-decoration: none;
+
+  .description {
+    margin: 0 auto;
+    max-width: 20rem;
   }
 }
 
-.blog-list .page-title a {
-  border-bottom: 0;
-  font-weight: 300;
-  font-size: 15px;
-  color: rgba(0,0,0,0.6);
-  font-weight: 100;
-  letter-spacing: 0.02em;
-}
+[data-section~="hello-world"] {
+  ul {
+    list-style-type: none;
+    margin-left: 1.5rem;
+    padding: 1.5rem 0 0;
+  }
 
-.blog-list .subnav-link {
-  width: 210px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.example-nav {
-  margin-top: 18px;
+  li + li {
+    padding-top: .25rem;
+  }
 }
