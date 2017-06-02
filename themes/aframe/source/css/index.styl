@@ -1,5 +1,6 @@
 $color-background = #fff;
 $color-primary = #ef2d5e;
+$color-primary-faded = #f9f1f5;
 $color-white = #fff;
 $font-copy = BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
 $font-mono = Consolas, Andale Mono, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
@@ -17,7 +18,7 @@ body {
 }
 
 html {
-  background-color: $color-background;
+  background-color: $color-primary-faded;
   font-size: 14px;
 }
 
@@ -48,46 +49,65 @@ tt
 
 .header {
   background-color: $color-primary;
-  padding: 3rem 0;
-  text-align: center;
+  border-bottom: 1px solid rgba(0,0,0,.15);
+  padding: 1.5rem 0;
+  padding-top: calc(1rem + 1.5vw + .5vh);
+  padding-bottom: calc(1rem + 1.5vw + .5vh);
   width: 100%;
 }
 
-.wordmark {
-  color: rgba(0,0,0,.2);
-  font-size: 2.5rem;
+.wordmark-link,
+.wordmark-link:hover {
+  color: rgba(0,0,0,.25);
+}
+
+.wordmark-link {
+  display: block;
   font-family: $font-mono;
-  text-transform: uppercase;
-  letter-spacing: .25ch;
+  font-size: 2rem;
   font-weight: 300;
+  letter-spacing: .25ch;
+  line-height: 1.4;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  span {
+    color: $color-white;
+    font-family: $font-wordmark;
+    font-weight: bold;
+    text-shadow: 1px 2px 0 rgba(0,0,0,.25);
+
+    &:before {
+      background: url(../images/aframe-sticker-diecut.svg) no-repeat;
+      content: "";
+      display: inline-block;
+      height: 30px;
+      width: 30px;
+    }
+  }
 }
 
-.wordmark span {
-  color: $color-white;
-  font-family: $font-wordmark;
-  font-weight: bold;
-  text-shadow: 1px 2px 0 rgba(0,0,0,.25);
-}
-
-.wordmark:before,
-.wordmark:after {
+.wordmark-link:before,
+.wordmark-link:after {
   display: inline;
 }
 
-.wordmark:before {
+.wordmark-link:before {
   content: "<";
-  padding-right: .175ch;
+  padding-right: .15ch;
 }
 
-.wordmark:after {
+.wordmark-link:after {
   content: ">";
-  padding-left: .175ch;
+  padding-left: .15ch;
 }
 
 .description {
   color: rgba(0,0,0,.5);
   font-family: $font-wordmark;
-  padding-top: .5rem;
+  font-size: 1.5rem;
+  padding: 4.5rem 0 3rem;
+  text-align: center;
 }
 
 .hello-world {
@@ -137,6 +157,10 @@ tt
     padding-top: 3rem;
     padding-left: 0;
   }
+}
+
+a {
+  transition: .15s color ease-in-out, .15s opacity ease-in-out;
 }
 
 a,
@@ -272,11 +296,6 @@ h2 a:hover {
 }
 
 .sponsor {
-  vertical-align: middle;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: 0 20px 20px;
   height: 30px;
 }
 .sponsor .message {
@@ -307,18 +326,6 @@ a.mozilla-logo:hover {
   width: 84px;
 }
 
-.logo {
-  display: block;
-  font-size: 1.1rem;
-  line-height: 1.4;
-  text-decoration: none;
-
-  .description {
-    margin: 0 auto;
-    max-width: 20rem;
-  }
-}
-
 [data-section~="hello-world"] {
   ul {
     list-style-type: none;
@@ -328,5 +335,59 @@ a.mozilla-logo:hover {
 
   li + li {
     padding-top: .25rem;
+  }
+}
+
+[data-section~="intro"] {
+  .wordmark {
+    width: 250px;
+  }
+
+  nav {
+    align-content: flex-start;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  ul {
+    display: flex;
+    list-style-type: none;
+
+    &:first-of-type {
+      flex-grow: 1;
+      // flex-shrink: 0;
+      // flex-basis: 200px;
+    }
+
+    li {
+      // flex: 1;
+      + li {
+        padding-left: 1rem;
+      }
+    }
+
+    a {
+      color: rgba(255,255,255,.8);
+      display: block;
+      text-decoration: none;
+
+      &:hover {
+        color: rgba(255,255,255,1);
+      }
+
+      span {
+        display: block;
+        padding: .65rem .5rem;
+      }
+    }
+  }
+
+  ul:last-child {
+    // margin-left: auto;
+    // flex: 1;
+    text-align: right;
   }
 }
