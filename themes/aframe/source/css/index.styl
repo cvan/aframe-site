@@ -26,17 +26,17 @@ body {
   color: #fff;
 }
 a {
-  border-bottom: 1px solid rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.5);
+  border-bottom: 1px solid rgba(255,255,255,.3);
+  color: rgba(255,255,255,.85);
   text-decoration: none;
 }
 a:hover {
-  border-bottom-color: rgba(255,255,255,0.3);
-  color: rgba(255,255,255,0.75);
+  border-bottom-color: rgba(255,255,255,.6);
+  color: #fff;
 }
 a:active,
 a.click {
-  border-bottom-color: rgba(255,255,255,0.5);
+  border-bottom-color: rgba(255,255,255,.9);
   color: #fff;
 }
 ul {
@@ -48,7 +48,7 @@ ul {
 .sidebar {
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
-  width: 295px;
+  width: 370px;
 }
 .sidebar::-webkit-scrollbar {
   width: 0 !important;
@@ -79,10 +79,12 @@ ul {
 }
 .content {
   background-color: #24CAFF;
+  /*
   display: flex;
   flex: 1;
   flex-direction: column;
   overflow-y: auto;
+  */
 }
 .example__controls {
   position: absolute;
@@ -155,28 +157,31 @@ ul {
 .example-nav-next {
   text-align: right;
 }
+
 .credits {
-  background: url("../images/mozvr-white.svg") 45% 60% no-repeat;
+  background: url(../images/mozvr-white.svg) 45% 60% no-repeat;
   background-size: 80% 80%;
   position: absolute;
   bottom: 0;
-  right: 0;
+  left: 0;
   height: 50px;
   width: 90px;
-  margin: 0px 20px 20px;
+  margin: 0 20px 20px;
 }
 .credits:hover {
-  background-color: rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,.1);
 }
 
-.sponsor {
-  vertical-align: middle;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin: 0 20px 20px;
-  height: 30px;
-}
+.sponsor
+  vertical-align middle
+  position absolute
+  top -3px
+  right 0
+  margin 20px 20px 0
+  height 30px
+  +media--desktop()
+    margin 40px 40px 0
+
 .sponsor .message {
   margin-right: 7px;
   display: inline-block;
@@ -186,12 +191,12 @@ ul {
   font-weight: 300;
 }
 a.mozilla-logo {
+  border-width: 0;
   display: inline-block;
   opacity: 0.8;
   background: url(../images/mozilla-logo.svg) no-repeat;
   height: 24px;
   width: 88px;
-  border: none;
   position: relative;
   top: 1px;
   transition: .15s opacity ease-in-out;
@@ -214,41 +219,48 @@ a.mozilla-logo:hover {
   background: #DADADA;
 }
 .content--index {
-  flex-direction: row;
+  // flex-direction: row;
 }
-.content--index .slogan {
-  color: #fff;
-  font-size: 28px;
-  font-weight: 300;
-  line-height: 1.2;
-  letter-spacing: -0.05rem;
-}
-.content--index .intro {
-  color: #fff;
-  font-size: 16.5px;
-  font-weight: 300;
-  line-height: 1.55;
-  margin: 1rem 0;
+
+.content--index .slogan
+  color #fff
+  font-size 28px
+  font-weight 400
+  line-height 1.2
+  letter-spacing -0.05rem
+  +media--desktop()
+    max-width 400px
+
+.content--index .intro
+  color #fff
+  font-size 16.5px
+  font-weight 300
+  line-height 1.55
+  margin 1rem 0
   /*width: 350px;*/
-}
+
 .content--index .disclaimer {
   color: rgba(255,255,255,0.5);
 }
 .menu {
+  margin-left: -10px;
   margin-bottom: 38px;
 }
 .menu-item {
   display: inline-block;
 }
 .menu-item a {
-  border-width: 0;
-  color: rgba(255,255,255,.75);
-  padding-right: 20px;
+  border-bottom-width: 0;
+  color: rgba(0,0,0,.6);
+  margin: 0 -10px;
+  padding: 0 20px;
+  font-weight: 600;
   text-transform: uppercase;
 }
 .menu-item a:hover {
-  color: rgba(255,255,255,1);
-  border-bottom: 1px solid rgba(0,0,0,.5);
+  // border-bottom: 1px solid rgba(255,255,255,.9);
+  color: #111;
+  font-weight: bold;
 }
 .btn-cta {
   background-color: #fff;
@@ -306,18 +318,37 @@ a.mozilla-logo:hover {
 }
 
 .home-content {
-  display: flex;
+  // display: flex;
+  width: 100%;
 }
 
 .home-center {
-  flex: 2;
+  //flex: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  // right: auto;
   height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.home-center .example__iframe {
+  // margin-left: 0%;
+  margin-left: 370px;
   width: 100%;
 }
 
 .content--index .copy__wrap {
-  flex: 1;
+  // background: rgba(0,0,0,.8);
+  background: #24caff;
+  height: 100%;
+  // margin-left: auto;
+  position: relative;
+  overflow-y: auto;
   min-width: 600px;
+  z-index: 1;
 }
 
 .home-feature-links {
@@ -409,3 +440,31 @@ a.mozilla-logo:hover {
     .line
       color rgba(255,255,255,.8)
       font-size: .8rem
+
+.btn-download
+  color rgba(17,17,17,.5)
+  display block
+  &:hover
+    color rgba(0,0,0,.75)
+
+.btn-download
+  margin 1rem 0
+
+.btn-download-label
+  color #333
+  font-size .9rem
+
+.btn-download-version
+  color #333
+  font-size 1em
+  font-weight 500
+  color rgba(17,17,117,.6)
+
+.btn-download-filename
+  font-size 1em
+  font-weight 600
+
+h3 code
+  background none
+  font-size 1em
+  opacity .9
