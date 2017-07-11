@@ -95,10 +95,6 @@ h4
     +media--desktop()
         max-width 700px
 
-.sidebar__wrap,
-.copy__wrap
-    padding 40px
-
 .nav, .subnav
     list-style-type none
 
@@ -231,6 +227,10 @@ h4
     content ""
     display table
 
+.sidebar__wrap,
+.copy__wrap
+    padding 40px
+
 @media screen and (max-width: 768px)
     .sidebar__wrap,
     .copy__wrap
@@ -273,3 +273,42 @@ a.mozilla-logo:hover {
 .github-emoji
   vertical-align top
 
+.highlight
+    position relative
+    background-color $codebg
+    padding .2em .2em .1em
+    line-height 1.1em
+    border-radius $radius
+    overflow-x auto
+    table, tr, td
+        width 100%
+        border-collapse collapse
+        padding 0
+        margin 0
+    .gutter
+        width 1.5em
+    .code
+        pre
+            padding 1.2em 1.4em
+            line-height 1.5em
+            margin 0
+    &.html, &.js, &.bash, &.css
+        &:after
+            position absolute
+            top 0
+            right 0
+            color #ccc
+            text-align right
+            font-size .75em
+            padding 5px 10px 0
+            line-height 15px
+            height 15px
+            font-weight 600
+    &.html:after
+        content 'HTML'
+    &.js:after
+        content 'JS'
+    &.bash:after
+        content 'Shell'
+    &.css:after
+        content 'CSS'

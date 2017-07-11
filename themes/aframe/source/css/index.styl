@@ -15,6 +15,10 @@ em {
   color: #7f8c8d;
 }
 
+html {
+  background: #ef2d5e;
+}
+
 html[data-is-home="true"] {
   min-width: 1000px;
 }
@@ -42,10 +46,9 @@ ul {
   background: url("../images/aframe-name-white.svg") no-repeat;
 }
 .sidebar {
-  background: #ef2d5e;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
-  width: 270px;
+  width: 295px;
 }
 .sidebar::-webkit-scrollbar {
   width: 0 !important;
@@ -58,7 +61,6 @@ ul {
   letter-spacing: 0.02em;
 }
 .main {
-  background: #ef2d5e;
   display: flex;
   height: 100%;
 }
@@ -76,10 +78,11 @@ ul {
   overflow-y: auto;
 }
 .content {
-  flex: 1;
-  overflow-y: auto;
+  background-color: #24CAFF;
   display: flex;
+  flex: 1;
   flex-direction: column;
+  overflow-y: auto;
 }
 .example__controls {
   position: absolute;
@@ -225,8 +228,8 @@ a.mozilla-logo:hover {
   font-size: 16.5px;
   font-weight: 300;
   line-height: 1.55;
-  margin-top: 10px;
-  width: 350px;
+  margin: 1rem 0;
+  /*width: 350px;*/
 }
 .content--index .disclaimer {
   color: rgba(255,255,255,0.5);
@@ -238,17 +241,16 @@ a.mozilla-logo:hover {
   display: inline-block;
 }
 .menu-item a {
+  border-width: 0;
+  color: rgba(255,255,255,.75);
+  padding-right: 20px;
   text-transform: uppercase;
-  color: rgba(0,0,0,0.75);
-  margin-right: 20px;
-  border: none;
 }
 .menu-item a:hover {
-  color: #000;
-  background-color: rgba(0,0,0,0.02);
-  border-bottom: 1px solid rgba(0,0,0,0.5);
+  color: rgba(255,255,255,1);
+  border-bottom: 1px solid rgba(0,0,0,.5);
 }
-.get-started {
+.btn-cta {
   background-color: #fff;
   border: 3px solid #fff;
   color: #000;
@@ -262,11 +264,11 @@ a.mozilla-logo:hover {
   text-transform: uppercase;
   transition: 0.05s ease;
 }
-.get-started:hover {
+.btn-cta:hover {
   background-color: #fff;
   color: #ef2d5e;
 }
-.get-started:active {
+.btn-cta:active {
   opacity: 0.8;
 }
 .mobile-get-started {
@@ -308,7 +310,6 @@ a.mozilla-logo:hover {
 }
 
 .home-center {
-  background-color: #24CAFF;
   flex: 2;
   height: 100vh;
   width: 100%;
@@ -316,7 +317,7 @@ a.mozilla-logo:hover {
 
 .content--index .copy__wrap {
   flex: 1;
-  min-width: 440px;
+  min-width: 600px;
 }
 
 .home-feature-links {
@@ -372,7 +373,7 @@ a.mozilla-logo:hover {
 }
 
 .blog-list .subnav-link {
-  width: 210px;
+  width: 220px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -381,3 +382,30 @@ a.mozilla-logo:hover {
 .example-nav {
   margin-top: 18px;
 }
+
+.home-content
+  h2, h3
+    color $white
+
+  h2
+    padding-top 1.5rem
+
+  h3
+    color fadeOut($white, 20%)
+    font-size 1rem
+    margin-top 1rem
+
+  p
+    color rgba(0,0,0,.8)
+    font-weight 300
+    //padding 1.5rem 0
+
+  h3
+    margin-top 1.75rem
+
+  .highlight
+    background rgba(0,0,0,.7)
+    margin 1rem 0
+    .line
+      color rgba(255,255,255,.8)
+      font-size: .8rem

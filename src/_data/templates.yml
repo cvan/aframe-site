@@ -1,0 +1,27 @@
+title: Starter Templates
+
+home:
+  section: home
+  slug: home
+  scene_url: https://aframe.io/aframe/examples/animation/aframe-logo/?ui=false
+  source_url: https://github.com/aframevr/aframe/blob/v0.6.0/examples/animation/aframe-logo/index.html
+  title: Logo
+
+showcase:
+- section: showcase
+  slug: helloworld
+  scene_url: https://aframe.io/aframe/examples/boilerplate/hello-world/
+  source_url: https://glitch.com/~aframe
+  title: Default Scene
+  supports:
+    controllers: false
+    mobile: true
+
+- section: showcase
+  slug: sky
+  scene_url: https://aframe.io/aframe/examples/boilerplate/panorama/
+  source_url: https://github.com/aframevr/aframe/blob/v0.6.0/examples/boilerplate/panorama/index.html
+  title: 360&deg; Panoramic Image
+  supports:
+    controllers: false
+    mobile: true

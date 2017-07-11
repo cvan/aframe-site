@@ -276,46 +276,6 @@ if numbered_debug
 .subnav-item + .subnav-item
     margin-top 0.25rem
 
-.highlight
-    position relative
-    background-color $codebg
-    padding .2em .2em .1em
-    line-height 1.1em
-    border-radius $radius
-    overflow-x auto
-    table, tr, td
-        width 100%
-        border-collapse collapse
-        padding 0
-        margin 0
-    .gutter
-        width 1.5em
-    .code
-        pre
-            padding 1.2em 1.4em
-            line-height 1.5em
-            margin 0
-    &.html, &.js, &.bash, &.css
-        &:after
-            position absolute
-            top 0
-            right 0
-            color #ccc
-            text-align right
-            font-size .75em
-            padding 5px 10px 0
-            line-height 15px
-            height 15px
-            font-weight 600
-    &.html:after
-        content 'HTML'
-    &.js:after
-        content 'JS'
-    &.bash:after
-        content 'Shell'
-    &.css:after
-        content 'CSS'
-
 .github-file-link
     background $codebg
     border 1px solid $border
@@ -560,4 +520,3 @@ body:not([data-page-layout="docs"]) .docs-search-wrapper
 
 .content--blog .page__title
     margin-bottom 7px
-
