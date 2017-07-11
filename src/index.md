@@ -15,13 +15,25 @@ layout: index
 
 ## Getting started
 
-Copy and paste these lines of HTML code in the &lt;head&gt; of your web page.
+Copy and paste these lines of HTML code in the &lt;head&gt; of your web page:
 
 ```html
 <head>
   <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
 </head>
 ```
+
+Or using the **[`aframe` command-line tool](/cli/)**:
+
+```bash
+npm install -g aframe-cli
+
+aframe new
+
+aframe publish
+```
+
+<!--
 
 ### Download A-Frame, version 0.6.0
 
@@ -39,16 +51,8 @@ npm install aframe
 require('aframe');
 ```
 
-### Using the `aframe` command-line tool
-
-```bash
-npm install -g aframe-cli
-
-aframe new
-
-aframe publish
-```
-
 ### Starter Kit
 
 <a class="btn btn-cta btn-kit" href="/docs/0.6.0/introduction/installation.html#download-the-boilerplate-on-github">Download Starter Kit</a>
+
+-->
