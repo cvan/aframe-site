@@ -78,7 +78,7 @@ ul {
   overflow-y: auto;
 }
 .content {
-  background-color: #24CAFF;
+  background-color: $color-secondary;
   /*
   display: flex;
   flex: 1;
@@ -342,7 +342,7 @@ a.mozilla-logo:hover {
 
 .content--index .copy__wrap {
   // background: rgba(0,0,0,.8);
-  background: #24caff;
+  background: $color-secondary;
   height: 100%;
   // margin-left: auto;
   position: relative;
@@ -417,12 +417,10 @@ a.mozilla-logo:hover {
 .home-content
   h2
     color $white
-
-  h2
     padding-top 1.5rem
 
   h3
-    color fadeOut($white, 20%)
+    color $color-text-white
     font-size 1rem
     margin-top 1rem
 
@@ -432,11 +430,10 @@ a.mozilla-logo:hover {
     margin-top .5rem
     padding .75rem 0
 
-  .intro
-    p
-      font-weight 400
-      margin 0
-      padding 0
+  .intro p
+    font-weight 400
+    margin 0
+    padding 0
 
   h3
     margin-top 1.75rem
@@ -449,6 +446,9 @@ a.mozilla-logo:hover {
       opacity .9
       padding 0
 
+  p a:only-child
+    margin-right .3ch
+
   .highlight
     background rgba(0,0,0,.7)
     margin 1rem 0
@@ -457,7 +457,6 @@ a.mozilla-logo:hover {
         &:before
           content "$ "
           display inline-block
-          // padding-right 1ch
           opacity .25
     .line
       color rgba(255,255,255,.8)
@@ -466,28 +465,10 @@ a.mozilla-logo:hover {
       font-weight 400
       opacity .5
 
-.btn-download
-  color rgba(17,17,17,.5)
-  display block
-  &:hover
-    color rgba(0,0,0,.75)
+  .npm-dogwhistle
+    opacity .75
 
-.btn-download
-  margin 1rem 0
-
-.btn-download-label
-  color #333
-  font-size .9rem
-
-.btn-download-version
-  color #333
-  font-size 1em
-  font-weight 500
-  color rgba(17,17,117,.6)
-
-.btn-download-filename
-  font-size 1em
-  font-weight 600
-
-p a:only-child
-  margin-right .3ch
+    a:first-child,
+    a:first-child + a
+      border-bottom-width 0
+      color inherit
