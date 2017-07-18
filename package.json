@@ -2,6 +2,7 @@
   "name": "aframe-site",
   "version": "0.0.0",
   "private": true,
+  "license": "CC-BY-SA-4.0",
   "dependencies": {
     "aframe": "github:aframevr/aframe#master",
     "chalk": "^1.1.3",

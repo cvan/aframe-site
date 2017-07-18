@@ -11,15 +11,15 @@
     <select id="docs-version" onchange="location = this.options[this.selectedIndex].getAttribute('data-href')">
       <% docs_versions(config.aframe_version).map(function (version) { %>
         <option <%- activeVersion === version && 'selected' %>
-                data-href="<%- docs_root_path(site.pages, version) %>">
+                data-href="<%= docs_root_path(site.pages, version) %>">
           <%- version %>
         </option>
       <% }); %>
     </select>
 
     <% docs_version_filter(site.pages, activeVersion).find({parent_section: 'docs'})
-                                                             .sort('section_order')
-                                                             .each(function (section) { %>
+                                                     .sort('section_order')
+                                                     .each(function (section) { %>
       <% if (page.type === section.type) { activeSection = section } %>
 
       <!-- Section title. -->
@@ -31,7 +31,7 @@
       <ol class="subnav section-subnav<%= section.show_guide ? ' numbered-subnav' : '' %>">
         <% docs_version_filter(docs_nav_sort(site.pages.find({type: section.type})),
                                activeVersion).forEach(function (p) { %>
-          <li class="subnav-item <%= page.title === p.title ? ' subnav-item-current' : '' %>">
+          <li class="subnav-item<%= page.title === p.title ? ' subnav-item-current' : '' %>">
             <a href="<%- page_url(p.path) %>"
                class="subnav-link<%= page.title === p.title ? ' current' : '' %>">
               <%- p.title.replace('<', '&lt;').replace('>', '&gt;') %>
@@ -57,7 +57,7 @@
       <%- partial('partials/search_field', {location: 'docs'}) %>
     </div>
     <h1 class="page__title">
-      <%- page.title.replace('<', '&lt;').replace('>', '&gt;') %>
+      <%- page.title.replace(/</g, '&lt;').replace(/>/g, '&gt;') %>
     </h1>
 
     <% if (page.image) { %>
@@ -93,9 +93,9 @@
   <div class="secondary-sidebar">
     <%- partial('partials/toc', {page: page}) %>
     <div class="doc-actions">
-      <a class="docs-suggest-edit github-file-link" href="<%- website_github_edit_url(page.path) %>" target="_blank" rel="external">Edit Page</a>
+      <a class="docs-suggest-edit github-file-link" href="<%- website_github_edit_url(page.path) %>" title="Edit Page" rel="external">Edit Page</a>
       <% if (page.source_code) { %>
-        <a class="docs-view-source github-file-link" href="https://github.com/aframevr/aframe/tree/<%- activeVersion === 'master' ? 'master' : 'v' + activeVersion %>/<%- page.source_code %>" title="View Source" target="_blank" rel="external">View Source</a>
+        <a class="docs-view-source github-file-link" href="https://github.com/aframevr/aframe/tree/<%= activeVersion === 'master' ? 'master' : 'v' + activeVersion %>/<%= page.source_code %>" title="View Source" rel="external">View Source</a>
       <% } %>
     </div>
   </div>

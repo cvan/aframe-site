@@ -17,6 +17,15 @@ blog_title: Blog
 ## https://developers.google.com/web/fundamentals/design-and-ui/browser-customization/theme-color
 theme_color: black
 
+# Licenses for site content, including docs.
+licenses:
+  code:
+    name: MIT License
+    url: https://github.com/aframevr/aframe/blob/master/LICENSE
+  content:
+    name: Creative Commons Attribution Share-Alike License v4.0
+    url: https://creativecommons.org/licenses/by-sa/4.0/
+
 # URL.
 ## If your site is put in a sub-directory, set URL as `http://yoursite.com/child` and root as `/child/`.
 url: https://aframe.io
