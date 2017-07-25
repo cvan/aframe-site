@@ -42,7 +42,7 @@ ul {
   background: url("../images/aframe-name-white.svg") no-repeat;
 }
 .sidebar {
-  background: #ef2d5e;
+  background: $color-primary;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
   width: 270px;
@@ -58,7 +58,7 @@ ul {
   letter-spacing: 0.02em;
 }
 .main {
-  background: #ef2d5e;
+  background: $color-primary;
   display: flex;
   height: 100%;
 }
@@ -95,7 +95,7 @@ ul {
     display: inline-block;
     padding: 5px 10px;
     &:active, &:hover {
-      background-color: #ef2d5e;
+      background-color: $color-primary;
     }
   }
 }
@@ -225,7 +225,7 @@ a.mozilla-logo:hover {
   font-size: 16.5px;
   font-weight: 300;
   line-height: 1.55;
-  margin-top: 10px;
+  margin: 10px 0 20px;
   width: 350px;
 }
 .content--index .disclaimer {
@@ -249,28 +249,50 @@ a.mozilla-logo:hover {
   border-bottom: 1px solid rgba(0,0,0,0.5);
 }
 .get-started {
-  background-color: #fff;
-  border: 3px solid #fff;
-  color: #000;
+  background-color: rgba(0,0,0,.5);
+  border-width: 0;
+  color: #fff;
   display: inline-block;
-  font-size: 15px;
-  font-weight: 300;
-  letter-spacing: 0.05rem;
-  margin-top: 20px;
-  padding: 8px 30px;
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: .05rem;
+  padding: 8px 18px;
+  position: relative;
   text-align: center;
-  text-transform: uppercase;
   transition: 0.05s ease;
+  white-space: nowrap;
+}
+
+.get-started:after {
+  content: "→";
+  display: inline-block;
+  position: relative;
+  margin-left: 1ch;
+  margin-right: 0ch;
+  transition: .05s all ease-in-out;
+  opacity: .4;
 }
 .get-started:hover {
-  background-color: #fff;
-  color: #ef2d5e;
+  background-color: rgba(0,0,0,.75);
+  color: #fff;
+  &:after {
+    margin-left: 3ch;
+    opacity: .8;
+  }
 }
 .get-started:active {
-  opacity: 0.8;
+  opacity: .8;
 }
-.mobile-get-started {
-  margin: 0 0 20px;
+.get-started:hover,
+.get-started:hover:after {
+  color: $color-primary;
+}
+.get-started:hover:after {
+  opacity: 1;
+}
+
+.sidebar .get-started {
+  margin-bottom: 20px;
 }
 @media screen and (max-width: 399px) {
   #logo {
@@ -288,7 +310,12 @@ a.mozilla-logo:hover {
     top: 30px;
     right: 30px;
   }
+
+  .sidebar .get-started {
+    width: 180px;
+  }
 }
+
 @media only screen and (max-device-width: 736px) and (orientation: landscape) {
   .sidebar {
     display: none;
