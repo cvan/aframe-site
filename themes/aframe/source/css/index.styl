@@ -17,6 +17,9 @@ em {
 
 html[data-is-home="true"] {
   min-width: 1000px;
+  .sidebar .get-started {
+    display: none;
+  }
 }
 body {
   color: #fff;
@@ -253,47 +256,25 @@ a.mozilla-logo:hover {
   border-width: 0;
   color: #fff;
   display: inline-block;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
+  font-size: calc(.9rem + 1vw);
   font-weight: 400;
   letter-spacing: .05rem;
-  padding: 8px 18px;
+  padding: 8px;
   position: relative;
   text-align: center;
   transition: 0.05s ease;
   white-space: nowrap;
 }
 
-.get-started:after {
-  content: "→";
-  display: inline-block;
-  position: relative;
-  margin-left: 1ch;
-  margin-right: 0ch;
-  transition: .05s all ease-in-out;
-  opacity: .4;
-}
-.get-started:hover {
-  background-color: rgba(0,0,0,.75);
-  color: #fff;
-  &:after {
-    margin-left: 3ch;
-    opacity: .8;
-  }
-}
 .get-started:active {
   opacity: .8;
-}
-.get-started:hover,
-.get-started:hover:after {
-  color: $color-primary;
-}
-.get-started:hover:after {
-  opacity: 1;
 }
 
 .sidebar .get-started {
   margin-bottom: 20px;
 }
+
 @media screen and (max-width: 399px) {
   #logo {
     max-width: 40vw;
@@ -311,8 +292,39 @@ a.mozilla-logo:hover {
     right: 30px;
   }
 
-  .sidebar .get-started {
-    width: 180px;
+  .content .get-started {
+    min-width: 160px;
+    padding: 8px 16px;
+  }
+
+  .get-started {
+    font-size: 1.3rem;
+  }
+
+  .get-started:after {
+    content: "→";
+    display: inline-block;
+    position: relative;
+    margin-left: 1ch;
+    margin-right: 0ch;
+    transition: .05s all ease-in-out;
+    opacity: .4;
+    &:hover {
+      background-color: rgba(0,0,0,.75);
+      color: #fff;
+      padding-left: 1ch;
+      &:after {
+        margin-left: 3ch;
+        opacity: .8;
+      }
+    }
+    &:hover,
+    &:hover:after {
+      color: $color-primary;
+    }
+    &:hover:after {
+      opacity: 1;
+    }
   }
 }
 
